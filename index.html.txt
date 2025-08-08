@@ -1,0 +1,181 @@
+dede, [08/08/2025 05:56]
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>THE SHARK TOKEN — Le memecoin qui mord dans le Web3</title>
+  <meta name="description" content="THE SHARK TOKEN — Memecoin Solana. Minage payant 0.005 SOL. Rejoignez la meute !" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="logo">
+        <div class="logo-box">
+          <!-- Mini logo requin -->
+          <svg width="38" height="38" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M3 12c5-6 10-8 18-9-4 6-5 10-9 12-4 2-8 2-9-3z" fill="#00f0e0" />
+          </svg>
+        </div>
+        <div>
+          <h1>THE SHARK TOKEN</h1>
+          <p class="subtitle">Le memecoin qui mord dans le Web3</p>
+        </div>
+      </div>
+      <nav>
+        <a href="#tokenomics">Tokenomics</a>
+        <a href="#roadmap">Roadmap</a>
+        <a href="https://x.com/TheSharkTokens?t=K-Gwpm-heo5Zi93sQ1qJvg&s=09" target="_blank" rel="noopener noreferrer">X</a>
+        <a href="https://t.me/TheSharkTokenOfficial" target="_blank" rel="noopener noreferrer">Telegram</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="hero-text">
+          <h2>🦈 THE SHARK TOKEN — Le memecoin qui mord dans le Web3</h2>
+          <p>
+            THE SHARK TOKEN est bien plus qu’un simple memecoin. Né dans les profondeurs de la blockchain Solana, il combine l’univers fun des tokens communautaires avec une utilité réelle, une vision décentralisée, et une mascotte inoubliable : le requin furieux du Web3.
+          </p>
+          <p>
+            Rejoignez une aventure unique qui vise à :
+          </p>
+          <ul>
+            <li>Récompenser les holders grâce à un système de minage innovant 🪙</li>
+            <li>Permettre d’acheter/échanger d'autres memecoins sur une plateforme dédiée 🔁</li>
+            <li>Mettre en avant la sécurité, la transparence et l’humour crypto 😎</li>
+            <li>Construire une gouvernance communautaire participative 🗳️</li>
+          </ul>
+          <p class="highlight">🌊 Explorez un univers visuel immersif : requins animés, éclairs néon, ambiance Web3.</p>
+          <p class="highlight">🚀 Que vous soyez un degen, un trader ou un simple curieux : rejoignez la meute ! Ne soyez pas la proie.</p>
+
+          <div class="pill">Minage payant : 0.005 SOL</div>
+
+          <div class="countdown" aria-label="Compte à rebours lancement">
+            <div class="unit"><div class="num" id="days">--</div><div class="lbl">Jours</div></div>
+            <div class="unit"><div class="num" id="hours">--</div><div class="lbl">Heures</div></div>
+            <div class="unit"><div class="num" id="mins">--</div><div class="lbl">Minutes</div></div>
+            <div class="unit"><div class="num" id="secs">--</div><div class="lbl">Secondes</div></div>
+          </div>
+
+          <div class="actions">
+            <button class="btn btn-primary" id="mineBtn">🔋 Commencer le minage — 0.005 SOL</button>
+            <button class="btn btn-ghost" id="connectBtn">Se connecter (Phantom)</button>
+          </div>
+          <p class="info">
+            En cliquant sur <strong>Commencer le minage</strong>, votre portefeuille Phantom ouvrira une transaction de 0.005 SOL vers l'adresse de minage. Après confirmation, vous recevrez automatiquement (backend requis) un lot de SHARK — ici le front prépare la transaction, un service serveur est nécessaire pour distribuer les tokens.
+          </p>
+        </div>
+        <aside class="hero-shark">
+          <!-- Requin animé SVG simple -->
+          <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" class="shark-svg" aria-hidden="true">
+
+dede, [08/08/2025 05:56]
+<defs>
+              <linearGradient id="g1" x1="0" x2="1">
+                <stop offset="0" stop-color="#00f0e0"/>
+                <stop offset="1" stop-color="#60e0ff"/>
+              </linearGradient>
+              <filter id="gloom" x="-50%" y="-50%" width="200%" height="200%">
+                <feGaussianBlur in="SourceGraphic" stdDeviation="6" result="blur"/>
+                <feMerge>
+                  <feMergeNode in="blur"/>
+                  <feMergeNode in="SourceGraphic"/>
+                </feMerge>
+              </filter>
+            </defs>
+
+            <g transform="translate(20,20)">
+              <ellipse cx="90" cy="90" rx="76" ry="46" fill="url(#g1)" opacity="0.12"/>
+              <g transform="translate(0,12)">
+                <path d="M10 80 C35 40, 140 38, 170 72 C140 62, 100 82, 70 92 C50 98, 15 98, 10 80Z" fill="#012a39" stroke="#00f0e0" stroke-opacity="0.12"/>
+                <path d="M36 62 C58 44, 120 44, 142 66 C122 58, 88 74, 63 80 C50 83, 38 82, 36 62Z" fill="#003b53" stroke="#60e0ff" stroke-opacity="0.06"/>
+                <path d="M68 68 C76 60, 110 60, 122 68 C110 64, 86 72, 68 74 Z" fill="#00f0e0" opacity="0.18"/>
+                <circle cx="130" cy="54" r="4" fill="#012"/>
+                <g fill="#fff">
+                  <path d="M146 76 L150 84 L142 80 Z" />
+                  <path d="M152 72 L156 80 L148 76 Z" />
+                </g>
+              </g>
+              <g id="fin" transform="translate(8,6)">
+                <path d="M18 28 C6 2, 60 2, 46 28 Z" fill="#00dfe0" opacity="0.18"/>
+              </g>
+            </g>
+          </svg>
+        </aside>
+      </section>
+
+      <section id="tokenomics" class="card">
+        <h2>📊 Tokenomics</h2>
+        <table>
+          <tr><th>Nom</th><td>THE SHARK TOKEN</td></tr>
+          <tr><th>Symbole</th><td>SHARK</td></tr>
+          <tr><th>Blockchain</th><td>Solana</td></tr>
+          <tr><th>Supply</th><td>1,000,000,000 SHARK</td></tr>
+        </table>
+        <h3>Distribution</h3>
+        <table>
+          <tr><th>Holders</th><td>50%</td></tr>
+          <tr><th>Développement</th><td>20%</td></tr>
+          <tr><th>Marketing</th><td>10%</td></tr>
+          <tr><th>Réserve</th><td>10%</td></tr>
+          <tr><th>Communauté</th><td>10%</td></tr>
+        </table>
+      </section>
+
+      <section id="roadmap" class="card">
+        <h2>📅 Roadmap — 10 étapes clés</h2>
+        <ol>
+          <li>Lancement du token SHARK, création de Telegram & Twitter</li>
+          <li>Première distribution + début du minage</li>
+          <li>Lancement du site officiel</li>
+          <li>Développement de la plateforme d’échange de memecoins</li>
+          <li>Intégration de la gouvernance décentralisée</li>
+          <li>Lancement de l’application mobile SHARK</li>
+          <li>Campagnes marketing, giveaways & influenceurs</li>
+          <li>Lancement de la collection NFT SHARK</li>
+          <li>Extension multi-blockchain</li>
+          <li>Création d’un fonds communautaire pour les projets votés</li>
+        </ol>
+      </section>
+
+      <section class="card">
+        <h2>⚒️ Minage</h2>
+        <p>Les wallets recevront automatiquement des SHARK proportionnellement à leur quantité de tokens et à la durée de détention. Un accès payant de <strong>0.005 SOL</strong> donne droit à un lot de SHARK. Le front prépare la transaction — un backend est nécessaire pour distribuer effectivement les tokens.</p>
+
+        <div class="grid-2">
+          <div>
+            <h3>Comment ça marche</h3>
+            <ul>
+              <li>Connecte ton wallet Phantom</li>
+              <li>Appuie sur "Commencer le minage" — une transaction de 0.005 SOL sera préparée</li>
+              <li>Après confirmation, le backend créditera tes SHARK</li>
+            </ul>
+          </div>
+          <div>
+            <h3>Adresse de minage</h3>
+            <p class="address">3FbH3mmc4K4rbTaS5bbF5fhKU1EUnFEzww1ieFw6fNpE</p>
+            <p class="small-note">(Adresse où la transaction de 0.005 SOL est envoyée — configurable)</p>
+          </div>
+        </div>
+      </section>
+
+dede, [08/08/2025 05:56]
+<section class="card">
+        <h2>🗳️ Gouvernance & 🔒 Sécurité</h2>
+        <p>Tous les détenteurs peuvent voter sur l’avenir du projet. Le code sera open-source et audité régulièrement pour garantir sécurité et transparence.</p>
+      </section>
+
+    </main>
+
+    <footer>
+      <p>© THE SHARK TOKEN — 2025 · Site simple, responsive et prêt pour Acode / GitHub</p>
+      <p><a href="https://x.com/TheSharkTokens?t=K-Gwpm-heo5Zi93sQ1qJvg&s=09" target="_blank" rel="noopener noreferrer">X</a> · <a href="https://t.me/TheSharkTokenOfficial" target="_blank" rel="noopener noreferrer">Telegram</a></p>
+    </footer>
+  </div>
+
+  <script src="https://unpkg.com/@solana/web3.js@1.79.1/lib/index.iife.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,103 @@
+// CONFIG
+const MINE_AMOUNT_SOL = 0.005;
+const MINING_ADDRESS = '3FbH3mmc4K4rbTaS5bbF5fhKU1EUnFEzww1ieFw6fNpE'; // configurable
+
+// Countdown to 10 Sept 2025 (YYYY, MM-1, DD)
+const target = new Date(Date.UTC(2025, 8, 10, 0, 0, 0)); // 10 Sept 2025 UTC
+
+function updateCountdown() {
+  const now = new Date();
+  const diff = target - now;
+  if (diff <= 0) {
+    document.getElementById('days').textContent = '00';
+    document.getElementById('hours').textContent = '00';
+    document.getElementById('mins').textContent = '00';
+    document.getElementById('secs').textContent = '00';
+    return;
+  }
+  const s = Math.floor(diff / 1000) % 60;
+  const m = Math.floor(diff / 1000 / 60) % 60;
+  const h = Math.floor(diff / 1000 / 60 / 60) % 24;
+  const d = Math.floor(diff / 1000 / 60 / 60 / 24);
+
+  document.getElementById('days').textContent = String(d).padStart(2, '0');
+  document.getElementById('hours').textContent = String(h).padStart(2, '0');
+  document.getElementById('mins').textContent = String(m).padStart(2, '0');
+  document.getElementById('secs').textContent = String(s).padStart(2, '0');
+}
+
+updateCountdown();
+setInterval(updateCountdown, 1000);
+
+// Phantom wallet helpers
+const connectBtn = document.getElementById('connectBtn');
+const mineBtn = document.getElementById('mineBtn');
+let provider = null;
+
+function getProvider() {
+  if (window.solana && window.solana.isPhantom) return window.solana;
+  return null;
+}
+
+async function connect() {
+  provider = getProvider();
+  if (!provider) {
+    alert("Phantom non détecté. Installe l'extension Phantom ou utilise un wallet compatible.");
+    return;
+  }
+  try {
+    const resp = await provider.connect();
+    connectBtn.textContent = 'Connecté — ' + (resp.publicKey?.toString() || '');
+    connectBtn.disabled = true;
+  } catch (e) {
+    console.error(e);
+  }
+}
+
+connectBtn.addEventListener('click', connect);
+
+async function mine() {
+  provider = getProvider();
+  if (!provider) {
+    alert('Phantom non détecté.');
+    return;
+  }
+  try {
+    // Build a SOL transfer transaction to MINING_ADDRESS for MINE_AMOUNT_SOL
+    const connection = new solanaWeb3.Connection(solanaWeb3.clusterApiUrl('mainnet-beta'));
+    if (!provider.publicKey) {
+      await provider.connect();
+    }
+
+    const transaction = new solanaWeb3.Transaction();
+    const recipient = new solanaWeb3.PublicKey(MINING_ADDRESS);
+    const lamports = Math.round(MINE_AMOUNT_SOL * solanaWeb3.LAMPORTS_PER_SOL);
+    const transfer = solanaWeb3.SystemProgram.transfer({
+      fromPubkey: provider.publicKey,
+      toPubkey: recipient,
+      lamports,
+    });
+    transaction.add(transfer);
+    transaction.feePayer = provider.publicKey;
+    transaction.recentBlockhash = (await connection.getLatestBlockhash()).blockhash;
+
+    // Request Phantom to sign & send
+    const { signature } = await provider.signAndSendTransaction(transaction);
+    mineBtn.textContent = 'Envoyé — tx: ' + signature.slice(0, 8) + '...';
+    mineBtn.disabled = true;
+    alert('Transaction envoyée. TX: ' + signature + '. Après confirmation, ton lot de SHARK sera distribué par le backend.');
+  } catch (err) {
+    console.error(err);
+    alert('Erreur lors de la transaction: ' + (err.message || err));
+  }
+}
+
+mineBtn.addEventListener('click', mine);
+
+// auto-connect if already connected
+window.addEventListener('load', () => {
+  if (getProvider() && getProvider().isConnected) {
+    connectBtn.textContent = 'Connecté — ' + (getProvider().publicKey?.toString() || '');
+    connectBtn.disabled = true;
+  }
+});
